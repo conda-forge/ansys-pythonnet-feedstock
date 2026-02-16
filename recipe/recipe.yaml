@@ -1,0 +1,48 @@
+context:
+  name: "ansys-pythonnet"
+  version: "3.1.0rc3"
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/ansys-pythonnet-${{ version }}.tar.gz
+  sha256: 369a0a5a838a0991f755b6d63c319ab6997f9dc464d016187227be5cd860a9cb
+
+build:
+  script: python -m pip install . -vv --no-deps --no-build-isolation
+  number: 3
+
+requirements:
+  host:
+    - dotnet ~=7.0
+    - mono  # [not win]
+    - python ${{ python_min }}.*
+    - setuptools >=61
+    - wheel
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - clr_loader >=0.2.6,<0.3.0
+    - mono  # [not win]
+    - dotnet ~=7.0
+
+tests:
+  - python:
+      imports:
+      - pythonnet
+      pip_check: true
+      python_version: ${{ python_min }}.*
+
+about:
+  summary: '.NET and Mono integration for Python (Ansys, Inc. fork)'
+  homepage: https://pypi.org/project/ansys-pythonnet/
+  repository: https://github.com/ansys/ansys-pythonnet
+  license: MIT
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - koubaa
+    - SMoraisAnsys
