@@ -17,15 +17,19 @@ build:
 requirements:
   host:
     - dotnet ~=7.0
-    - mono  # [not win]
-    - python ${{ python_min }}.*
+    - if:
+        selector: not win
+        then: mono
+    - python
     - setuptools >=61
     - wheel
     - pip
   run:
-    - python >=${{ python_min }}
+    - python
     - clr_loader >=0.2.6,<0.3.0
-    - mono  # [not win]
+    - if:
+        selector: not win
+        then: mono
     - dotnet ~=7.0
 
 tests:
