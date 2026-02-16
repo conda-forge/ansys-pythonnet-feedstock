@@ -35,7 +35,6 @@ tests:
       imports:
       - pythonnet
       pip_check: true
-      python_version: ${{ python_min }}.*
 
 about:
   summary: '.NET and Mono integration for Python (Ansys, Inc. fork)'
