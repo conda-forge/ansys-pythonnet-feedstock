@@ -17,9 +17,8 @@ build:
 requirements:
   host:
     - dotnet ~=7.0
-    - if:
-        selector: not win
-        then: mono
+    - if: not win
+      then: mono
     - python
     - setuptools >=61
     - wheel
@@ -27,9 +26,8 @@ requirements:
   run:
     - python
     - clr_loader >=0.2.6,<0.3.0
-    - if:
-        selector: not win
-        then: mono
+    - if: not win
+      then: mono
     - dotnet ~=7.0
 
 tests:
