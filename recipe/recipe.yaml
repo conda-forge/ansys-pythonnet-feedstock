@@ -36,7 +36,8 @@ tests:
       - pythonnet
       requires:
       - dotnet-runtime
-      - mono  # [not win]
+      - if: not win
+        then: mono
       pip_check: true
 
 about:
