@@ -1,5 +1,5 @@
 {% set name = "ansys-pythonnet" %}
-{% set version = "3.1.0rc4" %}
+{% set version = "3.1.0rc6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ansys_pythonnet-{{ version }}.tar.gz
-  sha256: 6b696529197aaaf0a0f0e31e0fea2a9c0fe53e33e6f73dfdedb940196f03abf5
+  sha256: 8ae09cf7687a7b431f41f570d12bd7547e393618231d0ef877fe021d491fc945
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
-  skip: true  # [py>=313]
+  skip: true  # [py>=314]
 
 requirements:
   build:
@@ -25,7 +25,7 @@ requirements:
   run:
     - clr_loader >=0.2.6,<0.3.0
     - mono  # [not win]
-    - dotnet ~=7.0
+    - dotnet-runtime ~=7.0
     - python
 
 test:
