@@ -1,31 +1,32 @@
 {% set name = "ansys-pythonnet" %}
-{% set version = "3.1.0rc3" %}
+{% set version = "3.1.0rc4" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ansys-pythonnet-{{ version }}.tar.gz
-  sha256: 369a0a5a838a0991f755b6d63c319ab6997f9dc464d016187227be5cd860a9cb
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ansys_pythonnet-{{ version }}.tar.gz
+  sha256: 6b696529197aaaf0a0f0e31e0fea2a9c0fe53e33e6f73dfdedb940196f03abf5
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 2
+  number: 0
+  skip: true  # [py>=313]
 
 requirements:
+  build:
+    - dotnet-sdk ~=7.0
   host:
-    - dotnet ~=7.0
-    - mono  # [not win]
     - python
     - setuptools >=61
     - wheel
     - pip
   run:
-    - python
     - clr_loader >=0.2.6,<0.3.0
     - mono  # [not win]
     - dotnet ~=7.0
+    - python
 
 test:
   imports:
@@ -40,7 +41,6 @@ about:
   license: MIT
   license_file: LICENSE
   home: https://pypi.org/project/ansys-pythonnet/
-  summary: Ansys fork of pythonnet
   dev_url: https://github.com/ansys/ansys-pythonnet
 
 extra:
