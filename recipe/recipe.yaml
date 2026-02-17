@@ -31,6 +31,8 @@ requirements:
     - dotnet ~=7.0
 
 tests:
+  - if: win
+    then: null
   - python:
       imports:
       - pythonnet
