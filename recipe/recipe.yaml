@@ -11,25 +11,23 @@ source:
   sha256: 369a0a5a838a0991f755b6d63c319ab6997f9dc464d016187227be5cd860a9cb
 
 build:
-  script: python -m pip install . -vv --no-deps --no-build-isolation
+  script: python -m pip install . -vv
   number: 3
 
 requirements:
   build:
-    - dotnet-sdk >=6
+    - dotnet-sdk ~=7.0
   host:
-    - if: not win
-      then: mono
+    - pip
     - python
     - setuptools >=61
     - wheel
-    - pip
   run:
     - python
     - clr_loader >=0.2.6,<0.3.0
     - if: not win
       then: mono
-    - dotnet-runtime
+    - dotnet-runtime ~=7.0
 
 tests:
   - python:
