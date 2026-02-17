@@ -31,12 +31,12 @@ requirements:
     - dotnet ~=7.0
 
 tests:
-  - if: win
-    then:
-      skip: true
   - python:
       imports:
       - pythonnet
+      requires:
+      - dotnet-runtime
+      - mono  # [not win]
       pip_check: true
 
 about:
