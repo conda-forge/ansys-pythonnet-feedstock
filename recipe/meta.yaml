@@ -40,7 +40,6 @@ about:
   license: MIT
   license_file: LICENSE
   home: https://pypi.org/project/ansys-pythonnet/
-  summary: Ansys fork of pythonnet
   dev_url: https://github.com/ansys/ansys-pythonnet
 
 extra:
