@@ -11,21 +11,21 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 3
+  number: 0
 
 requirements:
+  build:
+    - dotnet-sdk ~=7.0
   host:
-    - dotnet ~=7.0
-    - mono  # [not win]
     - python
     - setuptools >=61
     - wheel
     - pip
   run:
-    - python
     - clr_loader >=0.2.6,<0.3.0
     - mono  # [not win]
     - dotnet ~=7.0
+    - python >={{ python_min }},<3.13
 
 test:
   imports:
