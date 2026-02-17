@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ansys-pythonnet-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ansys-pythonnet-{{ version }}.tar.gz
   sha256: 6b696529197aaaf0a0f0e31e0fea2a9c0fe53e33e6f73dfdedb940196f03abf5
 
 build:
