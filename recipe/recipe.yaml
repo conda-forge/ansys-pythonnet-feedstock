@@ -16,7 +16,6 @@ build:
 
 requirements:
   host:
-    - dotnet ~=7.0
     - if: not win
       then: mono
     - python
@@ -28,16 +27,12 @@ requirements:
     - clr_loader >=0.2.6,<0.3.0
     - if: not win
       then: mono
-    - dotnet ~=7.0
+    - dotnet-runtime
 
 tests:
   - python:
       imports:
       - pythonnet
-      requires:
-      - dotnet-runtime
-      - if: not win
-        then: mono
       pip_check: true
 
 about:
