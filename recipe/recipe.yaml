@@ -32,7 +32,8 @@ requirements:
 
 tests:
   - if: win
-    then: null
+    then:
+      skip: true
   - python:
       imports:
       - pythonnet
