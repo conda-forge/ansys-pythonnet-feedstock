@@ -1,5 +1,5 @@
 {% set name = "ansys-pythonnet" %}
-{% set version = "3.1.0rc6" %}
+{% set version = "3.1.0rc8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ansys_pythonnet-{{ version }}.tar.gz
-  sha256: 8ae09cf7687a7b431f41f570d12bd7547e393618231d0ef877fe021d491fc945
+  sha256: cc0b73bcbbca77527ae7712e97dc17f442313a57c2e2e3f654111d31e99d5f98
 
 build:
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
   skip: true  # [py>=314]
 
 requirements:
